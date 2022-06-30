@@ -29,3 +29,8 @@ pipelines:
                 - hello-world
                 command: echo
                 run_if: passed
+            - exec:
+                arguments:
+                - version
+                command: kubectl
+                run_if: passed
