@@ -26,6 +26,5 @@ pipelines:
             tasks:
             - exec:
                 arguments:
-                - hello-world
-                command: echo
+                command: ./deploy.sh
                 run_if: passed
