@@ -1,0 +1,43 @@
+{
+  "apiVersion": "apps/v1beta2",
+  "kind": "Deployment",
+  "metadata": {
+    "labels": {
+      "app": "nginx"
+    },
+    "name": "nginx-deployment"
+  },
+  "spec": {
+    "replicas": 1,
+    "selector": {
+      "matchLabels": {
+        "app": "nginx"
+      }
+    },
+    "template": {
+      "metadata": {
+        "labels": {
+          "app": "nginx"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "command": [
+              "npm",
+              "start"
+            ],
+            "image": "nginx:1.23.0-alpine",
+            "name": "nginx",
+            "ports": [
+              {
+                "containerPort": 80,
+                "protocol": "TCP"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}
